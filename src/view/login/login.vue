@@ -29,15 +29,14 @@ export default {
     ]),
     handleSubmit ({ username, password }) {
       this.handleLogin({ username, password }).then(res => {
-        console.log(res)
         this.getUserInfo().then(res => {
           this.$router.push({
             name: this.$config.homeName
           })
         })
       }).catch((err,xhr)=>{
-        console.log(err.response)
         this.$Message.error(err.response.data.non_field_errors[0])
+
       })
     }
   }

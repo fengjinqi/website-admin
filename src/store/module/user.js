@@ -8,7 +8,6 @@ import {
   getUnreadCount
 } from '@/api/user'
 import { setToken, getToken } from '@/libs/util'
-import {console} from "vuedraggable/src/util/helper";
 
 export default {
   state: {
@@ -115,10 +114,8 @@ export default {
         }).then(res => {
           const data = res.data
           commit('setToken', data.token)
-          console.log(res)
           resolve()
         }).catch(err => {
-          console.log(err)
           reject(err)
         })
       })

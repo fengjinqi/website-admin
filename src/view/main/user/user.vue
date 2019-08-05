@@ -30,6 +30,7 @@
             <span v-else><Icon type="md-close-circle" size="24" color="red"/></span>
           </template>
           <template slot-scope="{ row, index }" slot="address">
+
             <div style="display: flex;justify-content: space-around;">
             <Button type="primary" @click="detail(row.id)">查看</Button>
             <Button type="warning" class="text-right"  @click="disbale(row.id,0)" v-if="row.is_active== true">禁用</Button>

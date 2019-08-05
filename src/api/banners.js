@@ -179,6 +179,7 @@ export const RemoveBanners = (token,id)=>{
  * @returns {*}
  * @constructor
  */
+
 export const AddBanners = (token,data)=>{
   return axios.request({
     url: '/api/BannerList/',
@@ -276,4 +277,5 @@ export const addSEO = (data,token) =>{
     data,
     method: 'post'
   })
+
 }

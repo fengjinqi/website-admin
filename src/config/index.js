@@ -18,7 +18,7 @@ export default {
    */
   baseUrl: {
     dev: '/api',
-    pro: 'http://www.fengjinqi.com:8000'
+    pro: ''
   },
   /**
    * @description 默认打开的首页的路由name值，默认为home

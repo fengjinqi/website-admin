@@ -14,6 +14,7 @@
     </Row>
     <Table border :columns="columns" :data="data">
       <template slot-scope="{ row, index }" slot="id">
+
         <span>{{index+1 }}</span>
       </template>
       <template slot-scope="{ row, index }" slot="title">
@@ -24,6 +25,7 @@
       </template>
 
       <template slot-scope="{ row, index }" slot="action">
+
         <div style="display: flex;justify-content: space-around;">
         <Button type="primary" @click="update(row.id)">修改</Button>
         <Button type="warning" @click="del(row.id)">删除</Button>
@@ -45,11 +47,13 @@
         </FormItem>
       </Form>
       <p v-else>是否删除?</p>
+
     </Modal>
   </Card>
 </template>
 
 <script>
+
   import {Friendship,addFriendship,getFriendship,putFriendship,delFriendship} from '@/api/banners'
   import { getToken } from '@/libs/util'
   export default {
@@ -99,22 +103,21 @@
       add(){
         this.modal1=true
         this.title = '新增'
-        this.id = ''
-        this.formItem.title = ''
-        this.formItem.url = ''
       },
+
       ok () {
         if(this.title=='修改'){
+
           let form = new FormData()
           form.append('title', this.formItem.title)
           form.append('url', this.formItem.url)
           putFriendship(this.id,form,getToken('token')).then(res=>{
             if(res.status==200){
               this.$Message.info('修改成功');
+
               //window.location.reload()
               this.getList()
               this.id = ''
-              this.get
             }else {
               this.$Message.info('修改失败');
             }
@@ -142,12 +145,17 @@
               this.$Message.info('创建失败');
             }
           }).catch(e=>{  this.$Message.info('创建失败');})
-        }
 
+        }
       },
       cancel () {
         this.id=''
         this.$Message.info('取消');
+    },
+    created () {
+      Friendship(getToken('token')).then(res=>{
+        this.data = res.data.results
+      })
       },
       del(row){
         this.modal1=true

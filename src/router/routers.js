@@ -281,6 +281,9 @@ export default [
         component: () => import('@/view/main/banners/Friendship')
       },
     ]
+<<<<<<< HEAD
+  },
+=======
   },*/
   {
     path: '/user',
@@ -335,6 +338,7 @@ export default [
     component: Main,
     children: [
       {
+
         path: 'banner',
         name: 'advert_banner',
         meta: {

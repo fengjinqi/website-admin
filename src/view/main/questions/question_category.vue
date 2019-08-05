@@ -19,6 +19,7 @@
       <template slot-scope="{ row, index }" slot="name">
         <span >{{ row.name }}</span>
       </template>
+
       <template slot-scope="{ row, index }" slot="image">
         <img :src="row.image"  alt="">
       </template>
@@ -32,11 +33,13 @@
             :title="title"
             @on-ok="ok"
             :loading="modal1"
+
             @on-cancel="cancel">
       <Form :model="formItem" :label-width="80">
         <FormItem label="分类名">
           <Input v-model="formItem.name" placeholder="请输分类名"></Input>
         </FormItem>
+
         <FormItem label="图标">
           <img :src="baseUrl" alt="" v-if="baseUrl" style="height: 100px;">
           <p  class="file_image">
@@ -48,6 +51,7 @@
     </Modal>
   </Card>
 </template>
+
 <style scoped>
   label{
     font-size: 16px;
@@ -142,16 +146,17 @@
       add(){
         this.modal1=true
         this.title = '新增'
+
         this.id = ''
       },
       ok () {
         if(this.id){
           let form = new FormData()
           form.append('name', this.formItem.name)
+
           form.append('image', this.formItem.image)
           putListCategorys(this.id,form,getToken('token')).then(res=>{
             this.modal1 = false
-
             if(res.status==200){
               this.baseUrl = ''
               this.$Message.info('修改成功');
