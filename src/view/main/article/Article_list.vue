@@ -156,10 +156,10 @@
   created(){
     this.$forceUpdate()
     console.log(this.viewAccessSuper,this.viewAccessAll)
-    this.$Spin.show();
+    //this.$Spin.show();
     if(this.viewAccessSuper&&this.viewAccessAll){
       getList(getToken('token')).then((res)=>{
-        this.$Spin.hide();
+        //this.$Spin.hide();
         this.count=res.data.count
         let item = res.data.results
         console.log(this.count)
@@ -187,9 +187,9 @@
       })
     }else
     if(this.viewAccessAll){
-      this.$Spin.show();
+      //this.$Spin.show();
       megetList(getToken('token')).then((res)=>{
-        this.$Spin.hide();
+        //this.$Spin.hide();
         this.count=res.data.count
         let item = res.data.results
         let n=[]
@@ -238,9 +238,9 @@
     },
     search(){
       if(this.viewAccessSuper&&this.viewAccessAll){
-        this.$Spin.show();
+        //this.$Spin.show();
         serachArticle(this.selected?this.selected:'',this.title,getToken('token')).then(res=>{
-          this.$Spin.hide();
+          //this.$Spin.hide();
           this.$refs.currents.currentPage=1
           this.count=res.data.count
           this.data = []
@@ -265,9 +265,9 @@
         })
       }else
      if(this.viewAccessAll){
-       this.$Spin.show();
+       //this.$Spin.show();
        meserachArticle(this.selected?this.selected:'',this.title,getToken('token')).then(res=>{
-         this.$Spin.hide();
+         //this.$Spin.hide();
          this.$refs.currents.currentPage=1
          this.count=res.data.count
          this.data = []
@@ -294,7 +294,7 @@
     },
     page (index) {
       if(this.viewAccessSuper&&this.viewAccessAll) {
-        this.$Spin.show();
+        //this.$Spin.show();
         axios.request({
           url: '/api/article_list/?page=' + index + '&category=' + this.selected + '&title=' + this.title,
           headers: {
@@ -302,7 +302,7 @@
           },
           method: 'get'
         }).then(res => {
-          this.$Spin.hide();
+          //this.$Spin.hide();
           let item = res.data.results
           let n = []
           this.data = []
@@ -324,7 +324,7 @@
           }
         })
       }else if(this.viewAccessAll){
-        this.$Spin.show();
+        //this.$Spin.show();
         axios.request({
           url: '/api/me_article_list/?page=' + index + '&category=' + this.selected + '&title=' + this.title,
           headers: {
@@ -332,7 +332,7 @@
           },
           method: 'get'
         }).then(res => {
-          this.$Spin.hide();
+          //this.$Spin.hide();
           let item = res.data.results
           let n = []
           this.data = []

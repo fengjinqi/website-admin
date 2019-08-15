@@ -18,7 +18,7 @@ export const login = ({ username, password }) => {
  */
 export const getUserInfo = (token) => {
   return axios.request({
-    url: '/api/info/',
+    url: '/api/apiinfo/',
     headers: {
       'Authorization': 'JWT ' + token
     },
@@ -27,7 +27,7 @@ export const getUserInfo = (token) => {
 }
 export const setUserInfo = (id,data,token) => {
   return axios.request({
-    url: '/api/info/'+id+'/',
+    url: '/api/apiinfo/'+id+'/',
     headers: {
       'Authorization': 'JWT ' + token
     },
@@ -171,7 +171,12 @@ export const setContentByMsgId = (id,data,token) => {
     data:data
   })
 }
-
+/**
+ * 删除消息
+ * @param id
+ * @param token
+ * @returns {*}
+ */
 export const removeMsgId = (id,token) => {
   return axios.request({
     url: "/api/UserMessages/"+id+"/?type=read",
@@ -182,4 +187,36 @@ export const removeMsgId = (id,token) => {
   })
 }
 
-
+/**
+ * 获取seo
+ * @param token
+ * @returns {*}
+ */
+export const getSeo=(token) =>{
+  return axios.request({
+    url: "/api/seo-list/",
+    method: 'get',
+    headers: {
+      'Authorization': 'JWT ' + token
+    },
+  })
+}
+export const getSeoDe=(token,id) =>{
+  return axios.request({
+    url: "/api/seo-list/"+id+'/',
+    method: 'get',
+    headers: {
+      'Authorization': 'JWT ' + token
+    },
+  })
+}
+export const patchSeo =(id,token,data) =>{
+  return axios.request({
+    url: "/api/seo-list/"+id+"/",
+    method: 'PATCH',
+    data:data,
+    headers: {
+      'Authorization': 'JWT ' + token
+    },
+  })
+}

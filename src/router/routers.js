@@ -374,15 +374,25 @@ export default [
         },
         component: () => import('@/view/main/sessting/qq')
       },
-      /*{
+      {
         path: 'seo',
         name: 'sessting_seo',
         meta: {
           title: 'SEO',
-          access: ['is_superuser'],
+          access: ['is_superuser','is_staff'],
+        },
+        component: () => import('@/view/main/sessting/seo_list')
+      },
+      {
+        path: 'seo/:id',
+        name: 'seoUpdate',
+        meta: {
+          title: 'SEO详情',
+          access: ['is_superuser','is_staff'],
+          hideInMenu: true,
         },
         component: () => import('@/view/main/sessting/seo')
-      },*/
+      },
       {
         path: '',
         name: 'sessting_user',
