@@ -19,7 +19,7 @@
           </Col>
         </Col>
         <Col span="6" style="display: flex;justify-content: flex-end;">
-          <Button type="primary"  icon="ios-add" :to="{name:'articleAdd'}">新增文章</Button>
+          <!--<Button type="primary"  icon="ios-add" :to="{name:'articleAdd'}">新增文章</Button>-->
         </Col>
       </Row>
       <Row>
@@ -149,14 +149,8 @@
       }
     },
     created(){
-      this.$Spin.show();
-      getList(getToken('token')).then(res=>{
-        if(res.status==200){
-          this.data = res.data.results
-          this.count = res.data.count
-          this.$Spin.hide();
-        }
-      })
+      //this.$Spin.show();
+     this.getLists()
       getListCategory( getToken('token') ).then(res=>{
         this.select = res.data
       })
@@ -173,9 +167,16 @@
       }
     },
     methods: {
-
+      getLists(){
+        getList(getToken('token')).then(res=>{
+          if(res.status==200){
+            this.data = res.data.results
+            this.count = res.data.count
+            this.$Spin.hide();
+          }
+        })
+      },
       search(){
-        this.$Spin.show();
         getList(getToken('token'),this.title,this.selected).then(res=>{
           if(res.status==200){
             this.$refs.currents.currentPage=1
@@ -224,6 +225,7 @@
         form.append('hidden',type)
         putList(getToken('token'),n,form).then(res=>{
           console.log(res)
+          this.getLists()
         })
       }
     },

@@ -78,7 +78,7 @@
           /** 上传图片相关配置如下 */
           imageUpload: true,
           imageFormats: ['jpg', 'jpeg', 'gif', 'png', 'bmp', 'webp'],
-          imageUploadURL: '/api/article/blog_img_upload/'
+          imageUploadURL: '/article/blog_img_upload/'
         })
     })
     }
