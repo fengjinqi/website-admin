@@ -9,6 +9,7 @@
         <DropdownItem name="message">
           消息中心<Badge style="margin-left: 10px" :count="messageUnreadCount"></Badge>
         </DropdownItem>
+        <DropdownItem name="home">查看站点</DropdownItem>
         <DropdownItem name="logout">退出登录</DropdownItem>
       </DropdownMenu>
     </Dropdown>
@@ -51,6 +52,9 @@ export default {
         case 'logout': this.logout()
           break
         case 'message': this.message()
+          break
+        case 'home':
+          window.location.href='/'
           break
       }
     }

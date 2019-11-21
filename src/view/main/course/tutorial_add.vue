@@ -8,7 +8,7 @@
           <Input v-model="formValidate.title" ></Input>
         </FormItem>
         <FormItem label="内容">
-          <div id="test-editormd">
+          <div id="editormd">
             <textarea  name="" class="form-control" cols="30" rows="10"></textarea>
           </div>
         </FormItem>
@@ -64,11 +64,16 @@
         this.$refs[name].resetFields();
       }
     },
-    created () {
+     created () {
+
       this.id = this.$route.params.id
+
+    },
+    mounted() {
       let test = this
       jquery(function () {
-        test.testEditor = editormd('test-editormd', {
+        test.testEditor = editormd('editormd', {
+          markdown : "",
           width: '100%',
           height: 640,
           syncScrolling: 'single',
@@ -80,7 +85,8 @@
           imageFormats: ['jpg', 'jpeg', 'gif', 'png', 'bmp', 'webp'],
           imageUploadURL: '/article/blog_img_upload/'
         })
-    })
+      console.log(test.testEditor)
+      })
     }
   }
 </script>

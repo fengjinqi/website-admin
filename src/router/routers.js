@@ -190,16 +190,7 @@ export default [
         },
         component: () => import('@/view/main/course/tutorial')
       },
-      {
-        path: 'tutorial_add/:id',
-        name: 'tutorialadd',
-        meta: {
-          title: '添加内容',
-          access: ['is_superuser','is_staff'],
-          hideInMenu: true,
-        },
-        component: () => import('@/view/main/course/tutorial_add')
-      },
+
       {
         path: 'tutorialdetail/:id',
         name: 'tutorials_detail',
@@ -207,10 +198,21 @@ export default [
           title: '教程内容',
           access: ['is_superuser','is_staff'],
           hideInMenu: true,
+          notCache:true,
         },
         component: () => import('@/view/main/course/tutorial_detail')
       },
-
+      {
+        path: 'tutorial_add/:id',
+        name: 'tutorialadd',
+        meta: {
+          title: '添加内容',
+          access: ['is_superuser','is_staff'],
+          hideInMenu: true,
+          notCache:false,
+        },
+        component: () => import('@/view/main/course/tutorial_add')
+      }
     ]
   },
   {

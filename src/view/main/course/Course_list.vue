@@ -13,7 +13,7 @@
           </Col>
         </Col>
         <Col span="6" style="display: flex;justify-content: flex-end;">
-          <Button type="primary"  icon="ios-add" :to="{name:'course_add'}">新增教程</Button>
+<!--          <Button type="primary"  icon="ios-add" :to="{name:'course_add'}">新增教程</Button>-->
         </Col>
       </Row>
       <Row>

@@ -48,7 +48,7 @@ module.exports = {
     },
     proxy: {
       '/api': {
-        target: 'http://www.fengjinqi.com:8000', // 后台服务器的ip地址
+        target: 'http://192.168.0.163:8000', // 后台服务器的ip地址
         pathRewrite: { '^/api': '/' },
         changeOrigin: true
       }

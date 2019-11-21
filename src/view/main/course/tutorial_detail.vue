@@ -30,6 +30,7 @@
   import {mapActions} from 'vuex'
   import {detailTutorial,updateTutorial} from '@/api/course'
   export default {
+    name:'tutorials_detail',
     data(){
       return{
         content:'',
